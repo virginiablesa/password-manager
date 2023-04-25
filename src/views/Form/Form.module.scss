@@ -1,0 +1,95 @@
+@import "../../styles/base";
+$borderInput: $grey-medium;
+.form {
+  input[type="password"],
+  input[type="text"] {
+    border: none;
+    font-size: $font-size-4;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  textarea {
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &__label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: $space-sm;
+  }
+
+  &__input {
+    border: 1px solid $borderInput;
+    border-radius: $space-xxs;
+    padding: $space-sm;
+    position: relative;
+    margin-top: $space-xxs;
+    font-size: $font-size-4;
+  }
+  .password {
+    display: flex;
+    flex-wrap: wrap;
+    $password: &;
+    &__wrapper {
+      margin-bottom: $space-lg;
+      width: 40%;
+      min-width: 250px;
+      &:first-child {
+        margin-right: $space-lgl;
+      }
+    }
+
+    &__passContainer {
+      border: 1px solid $borderInput;
+      border-radius: $space-xxs;
+      padding: $space-sm $space-lgl $space-sm $space-sm;
+      position: relative;
+      margin-top: $space-xxs;
+      &::before {
+        content: "";
+        border-bottom: 2px solid orange;
+        display: block;
+        width: $space-xxl;
+        height: $space-lg;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+      .reveal {
+        position: absolute;
+        top: $space-sm;
+        right: $space-sm;
+      }
+    }
+    .error {
+      border: 1px solid $red;
+      &__alert {
+        color: $red;
+        font-size: $font-size-3;
+        font-weight: $font-semiBold;
+        padding-top: $space-xxs;
+        position: absolute;
+      }
+    }
+  }
+
+  .hint {
+    font-family: $font-quicksand;
+    &__container {
+      height: $space-mdl;
+      width: calc(100% - #{$space-md});
+    }
+    &__count {
+      text-align: right;
+      color: $borderInput;
+    }
+  }
+}

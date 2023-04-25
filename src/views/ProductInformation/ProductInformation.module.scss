@@ -1,0 +1,30 @@
+@import "../../styles/base";
+.info {
+  .introduction {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &__container {
+      align-items: center;
+      margin-top: $space-md;
+      display: flex;
+      flex-direction: column;
+      min-width: 250px;
+      width: 40%;
+      &:first-child {
+        margin-right: $space-lg;
+      }
+    }
+  }
+
+  &__checkboxContainer {
+    align-items: center;
+    display: flex;
+    &__checkbox {
+      height: $space-md;
+      margin-right: $space-sm;
+      width: $space-md;
+    }
+  }
+}

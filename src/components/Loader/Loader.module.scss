@@ -1,0 +1,35 @@
+@import "../../styles/base";
+.loaderWrapper {
+  display: flex;
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  .loader {
+    animation: spin 1s linear infinite;
+    border: $space-sm solid $terciary-color;
+    border-radius: 50%;
+    border-top: $space-sm solid $primary-color;
+    height: $space-xxxl;
+    width: $space-xxxl;
+    &__text {
+      text-indent: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      display: block;
+    }
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

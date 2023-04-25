@@ -1,0 +1,156 @@
+@import "../../styles/base";
+
+$boderBottomBar: 4px solid;
+$topBar: calc(50% - 2px);
+
+@mixin beforeClassBar {
+  content: "";
+  border-bottom: $boderBottomBar $primary-color;
+  left: -50%;
+  position: absolute;
+  top: $topBar;
+  z-index: 3;
+}
+
+@mixin arrow {
+  border-left: $space-xs solid transparent;
+  border-right: $space-xs solid transparent;
+  border-bottom: $space-xs solid $grey-medium;
+  bottom: 0;
+  left: calc(50% - #{$space-xs});
+  position: absolute;
+}
+
+.stepperWrapper {
+  background: $grey-light;
+  border-bottom: 1px solid $grey-medium;
+  padding-top: $space-sm;
+  position: relative;
+  &__list {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    width: 45%;
+    &__item {
+      align-items: center;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      position: relative;
+      &::after {
+        content: "";
+        border-bottom: $boderBottomBar $grey-dark;
+        left: 50%;
+        position: absolute;
+        top: $topBar;
+        z-index: 2;
+        width: 100%;
+      }
+
+      .stepNumberWrapper {
+        align-items: center;
+        display: flex;
+        height: $space-xxl;
+        position: relative;
+        .arrow {
+          @include arrow;
+          &::after {
+            @include arrow;
+            bottom: -10px;
+            border-bottom: $space-xs solid $white;
+            content: "";
+          }
+        }
+
+        .stepNumber {
+          align-items: center;
+          background: $grey-dark;
+          border-radius: 50%;
+          color: $white;
+          display: flex;
+          font-size: $space-unit;
+          height: $space-xs;
+          justify-content: center;
+          margin-bottom: $space-xxs;
+          padding: 10px;
+          position: relative;
+          width: $space-xs;
+          z-index: 5;
+        }
+      }
+
+      &.completed,
+      &.active {
+        &::before {
+          @include beforeClassBar;
+          animation: incrementStep 0.5s ease-in-out;
+          width: 100%;
+        }
+      }
+
+      &.completed {
+        .stepNumber {
+          background-color: $primary-color;
+          width: $space-xs;
+          height: $space-xs;
+          > span {
+            transform: scale(-1, 1) rotate(-38deg) translateY(-2px);
+          }
+        }
+      }
+
+      &.active {
+        .stepNumber {
+          animation: activeCurrentStep 0.5s ease-in-out;
+          background-color: $secondary-color;
+          box-shadow: 0px 0px 5px $black;
+          height: $space-unit;
+          width: $space-unit;
+
+          > span {
+            transform: unset;
+          }
+        }
+      }
+
+      &:first-child {
+        &::before {
+          content: none;
+        }
+      }
+
+      &:last-child {
+        &::after {
+          content: none;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      font-size: $font-size-2;
+    }
+  }
+}
+
+@keyframes incrementStep {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes activeCurrentStep {
+  from {
+    height: $space-xs;
+    width: $space-xs;
+  }
+  to {
+    height: $space-unit;
+    width: $space-unit;
+  }
+}

@@ -1,0 +1,38 @@
+@import "styles/base";
+
+body {
+  margin: 0;
+  font-family: $font-quicksand;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/** buttons **/
+.btn {
+  border: none;
+  border-radius: $space-xxs;
+  cursor: pointer;
+  display: flex;
+  font-family: $font-quicksand;
+  font-size: $font-size-3;
+  font-weight: $font-semiBold;
+  padding: $space-sm;
+  &__arrow {
+    height: $space-md;
+    margin-right: $space-xxs;
+  }
+
+  &.btn-primary {
+    background: $secondary-color;
+    color: $white;
+  }
+
+  &.btn-secondary {
+    background: none;
+    color: $secondary-color;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+  }
+}

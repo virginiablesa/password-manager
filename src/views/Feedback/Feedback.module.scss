@@ -1,0 +1,45 @@
+@import "../../styles/base";
+.feedback {
+  &__content {
+    display: flex;
+    margin-top: $space-md;
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    &__textContent {
+      margin-left: $space-unit;
+      margin-top: $space-xxs;
+      text-align: left;
+      @media (max-width: 768px) {
+        text-align: center;
+      }
+    }
+    &__header {
+      color: $secondary-color;
+      font-size: $space-md;
+      font-weight: $font-semiBold;
+      margin-bottom: $space-xxs;
+    }
+    &__description {
+      color: $secondary-color;
+      margin: 0;
+      font-size: $font-size-3;
+    }
+  }
+}
+
+.cancelButton {
+  background: none;
+  border: none;
+  color: $primary-color;
+}
+.link {
+  background: none;
+  color: $primary-color;
+  text-decoration: none;
+}
+.arrow {
+  margin-left: $space-xxs;
+  vertical-align: middle;
+}

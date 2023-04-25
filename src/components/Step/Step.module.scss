@@ -1,0 +1,21 @@
+@import "../../styles/base";
+.StepWrapper {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  color: $secondary-color;
+  padding: $space-sm 10% 0;
+
+  &__title {
+    color: $secondary-color;
+    font-size: $font-size-6;
+    margin-bottom: $space-unit;
+    position: relative;
+    &::before {
+      border-bottom: 2px solid #2daecb;
+      bottom: -3px;
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: $space-mdl;
+    }
+  }
+}

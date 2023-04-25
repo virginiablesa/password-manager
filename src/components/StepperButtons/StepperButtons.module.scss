@@ -1,0 +1,12 @@
+@import "../../styles/base";
+
+.buttonsWrapper {
+  border-top: 1px solid $grey-medium;
+  display: flex;
+  justify-content: space-between;
+  margin-top: $space-xxl;
+  padding: $space-md 0;
+  &.rightAligned {
+    justify-content: flex-end;
+  }
+}
